@@ -17,3 +17,6 @@ atlassian-ide-plugin.xml
 /dqbug/local_settings.py
 /dqbug/public/static
 /dqbug/public/media
+
+# Database
+*.db
