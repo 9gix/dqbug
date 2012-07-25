@@ -17,12 +17,61 @@
     <link rel="pingback" href="/xmlrpc/" />
     <link rel="shortcut icon" href="{{ STATIC_URL }}blog/img/favicon.ico" />
     <link rel="home" href="{% url 'zinnia_entry_archive_index' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ STATIC_URL }}highlighter/css/shCoreMidnight.css" />
     <link rel="stylesheet" type="text/css" media="screen, projection" href="{{ STATIC_URL }}blog/css/screen.css" />
     <link rel="stylesheet" type="text/css" media="print" href="{{ STATIC_URL }}blog/css/print.css" />
     <!--[if lt IE 8]>
         <link rel="stylesheet" type="text/css" media="screen, projection" href="{{ STATIC_URL }}blog/css/ie.css" />
     <![endif]-->
+    <style type="text/css">
+      .syntaxhighlighter { overflow-y: hidden !important; }
+    </style>
     {% block link %}{% endblock %}
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}highlighter/js/shCore.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}highlighter/js/shAutoloader.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        function path()
+        {
+          var args = arguments,
+              result = []
+              ;
+               
+          for(var i = 0; i < args.length; i++)
+            result.push(args[i].replace('@', 'http://localhost:9001{{ STATIC_URL }}highlighter/js/'));
+               
+          return result
+        };
+        SyntaxHighlighter.autoloader.apply(null, path(
+          'applescript            @shBrushAppleScript.js',
+          'actionscript3 as3      @shBrushAS3.js',
+          'bash shell             @shBrushBash.js',
+          'coldfusion cf          @shBrushColdFusion.js',
+          'cpp c                  @shBrushCpp.js',
+          'c# c-sharp csharp      @shBrushCSharp.js',
+          'css                    @shBrushCss.js',
+          'delphi pascal          @shBrushDelphi.js',
+          'diff patch pas         @shBrushDiff.js',
+          'erl erlang             @shBrushErlang.js',
+          'groovy                 @shBrushGroovy.js',
+          'java                   @shBrushJava.js',
+          'jfx javafx             @shBrushJavaFX.js',
+          'js jscript javascript  @shBrushJScript.js',
+          'perl pl                @shBrushPerl.js',
+          'php                    @shBrushPhp.js',
+          'text plain             @shBrushPlain.js',
+          'py python              @shBrushPython.js',
+          'ruby rails ror rb      @shBrushRuby.js',
+          'sass scss              @shBrushSass.js',
+          'scala                  @shBrushScala.js',
+          'sql                    @shBrushSql.js',
+          'vb vbnet               @shBrushVb.js',
+          'xml xhtml xslt html    @shBrushXml.js'
+        ));
+        SyntaxHighlighter.all();
+      });
+    </script>
     {% block script %}{% endblock %}
   </head>
   <body class="blog {% block body-class %}{% endblock %}">
