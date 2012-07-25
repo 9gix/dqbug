@@ -10,3 +10,18 @@ urlpatterns = patterns('',
     url(r'^blog/', include('zinnia.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
 )
+
+from zinnia.sitemaps import TagSitemap
+from zinnia.sitemaps import EntrySitemap
+from zinnia.sitemaps import CategorySitemap
+from zinnia.sitemaps import AuthorSitemap
+
+sitemaps = {'tags': TagSitemap,
+            'blog': EntrySitemap,
+            'categories': CategorySitemap,}
+
+urlpatterns += patterns('django.contrib.sitemaps.views',
+            url(r'^sitemap.xml$', 'index',
+                {'sitemaps': sitemaps}),
+            url(r'^sitemap-(?P<section>.+)\.xml$', 'sitemap',
+                {'sitemaps': sitemaps}),)
