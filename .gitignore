@@ -20,3 +20,10 @@ atlassian-ide-plugin.xml
 
 # Database
 *.db
+
+# SASS
+.sass-cache/
+
+# Symlink
+static/admin/
+static/zinnia/
