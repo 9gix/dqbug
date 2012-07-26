@@ -19,6 +19,9 @@
     margin: 0;
     float: right;
     @include delimited-list("|");
+    .admin {
+      @include header-icon("admin.png");
+    }
     .sitemap {
       @include header-icon("sitemap.png");
     }
