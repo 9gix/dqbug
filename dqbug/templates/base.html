@@ -92,6 +92,16 @@
       <div id="header">
         <ul class="top-navigation">
           <li>
+            <a href="{% url 'admin:index' %}" title="{% trans "Admin" %}" class="admin">
+              {% trans "Admin" %}
+            </a>
+          </li>
+          <li>
+            <a href="http://eugene-yeo.me" title="{% trans "About us" %}" class="about">
+              {% trans "About Us" %}
+            </a>
+          </li>
+          <li>
             <a href="{% url 'zinnia_sitemap' %}" title="{% trans "Sitemap" %}" class="sitemap">
               {% trans "Sitemap" %}
             </a>
@@ -99,11 +109,6 @@
           <li>
             <a href="{% url 'zinnia_entry_latest_feed' %}" title="{% trans "RSS Feed of latest entries" %}" class="feeds">
               {% trans "RSS Feed" %}
-            </a>
-          </li>
-          <li>
-            <a href="http://eugene-yeo.me" title="{% trans "About us" %}" class="about">
-              {% trans "About Us" %}
             </a>
           </li>
         </ul>
