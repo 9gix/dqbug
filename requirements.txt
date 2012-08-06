@@ -2,3 +2,4 @@ django==1.4
 south==0.7.5
 django-blog-zinnia==0.11.2
 PIL==1.1.7
+markdown==2.2.0
