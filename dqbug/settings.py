@@ -159,6 +159,8 @@ LOGGING = {
     }
 }
 
+ZINNIA_MARKUP_LANGUAGE = 'markdown'
+
 try:
     LOCAL_SETTINGS
 except NameError:
