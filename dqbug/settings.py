@@ -26,6 +26,10 @@ TIME_ZONE = 'Asia/Singapore'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
+LANGUAGES = [
+    ('en', 'English'),
+]
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -86,6 +90,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'cms.middleware.multilingual.MultilingualURLMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'dqbug.urls'
@@ -108,6 +116,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
+    'cms.context_processors.media',
+    'sekizai.context_processors.sekizai',
 )
 
 FIXTURE_DIRS = (
@@ -120,14 +130,21 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.markup',
     'django.contrib.messages',
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
-    'tagging',
+    'cms',
     'mptt',
+    'sekizai',
+    'menus',
+    'cms.plugins.text',
+    'cmsplugin_zinnia',
+    'cmsplugin_markdown',
     'zinnia',
+    'tagging',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -160,6 +177,14 @@ LOGGING = {
 }
 
 ZINNIA_MARKUP_LANGUAGE = 'markdown'
+
+CMS_TEMPLATES = (
+    ('page.html', 'Default Page'),
+)
+
+CMS_SEO_FIELDS = True
+
+ZINNIA_ENTRY_BASE_MODEL = 'cmsplugin_zinnia.placeholder.EntryPlaceholder'
 
 try:
     LOCAL_SETTINGS

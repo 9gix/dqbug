@@ -1,5 +1,11 @@
 django==1.4.1
 south==0.7.5
-django-blog-zinnia==0.11.2
 PIL==1.1.7
+django-cms==2.3
+django-classy-tags==0.3.4.1
+django-mptt==0.5.2
+django-sekizai==0.6.1
+html5lib==0.95
 markdown==2.2.0
+cmsplugin-zinnia==0.2
+cmsplugin-markdown==0.1
